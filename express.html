@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0,uc-fitscreen=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>快递员选择</title>
+    <meta name="keywords" content="miniMobile的demo">
+    <meta name="description" content="miniMobile是一个简单易用的移动框架！">
+    <!-- ui css、js -->
+    <link rel="stylesheet" type="text/css" href="css/miniMobile.css">
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/miniMobile.js"></script>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" type="text/css" href="plugins/fonticon/iconfont.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+    <style>
+        #main #choose {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 0.1rem;
+        }
+        
+        #choose p {
+            font-size: 0.32rem;
+            margin: 0.2rem 0;
+        }
+        
+        .checkone {
+            border: 2px solid cornflowerblue;
+        }
+        
+        #main section {
+            display: inline-block;
+        }
+        
+        #confirm {
+            position: fixed;
+            bottom: 0;
+        }
+        
+        #confirm p {
+            display: inline-block;
+            line-height: 1.2rem;
+            height: 1.2rem;
+            letter-spacing: 0.1em;
+            text-indent: 0.3em;
+        }
+        
+        #confirm button {
+            border: none;
+            outline: none;
+            font-size: 0.3rem;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <header class="ui-header clearfix w75 h15 f46">
+        <div class="ui-header-c fl f30 w75">
+            <a href="homePage.html">
+                <img src="images/logo.png" class="h12 w75">
+            </a>
+        </div>
+
+    </header>
+    <div id="main" class="w75 pr3" style="overflow: hidden">
+        <h2>请选择喜欢的配送员</h2>
+        <div id="choose">
+            <section class="w35 t-c h42 mt4">
+                <p>一号：Qiqi</p>
+                <img src="images/user.jpg " alt="快递员1号 " class="w30 h30 ">
+            </section>
+            <section class="w35 t-c h42 mt4">
+                <p>二号：Mingming</p>
+                <img src="images/user2.jpg" alt="快递员1号 " class="w30 h30 ">
+            </section>
+            <section class="w35 t-c h42 mt4">
+                <p>三号：Peiqi</p>
+                <img src="images/touxiang.jpg " alt="快递员1号 " class="w30 h30 ">
+            </section>
+            <section class="w35 t-c h42 mt4">
+                <p>四号：Qiaozhi</p>
+                <img src="images/user3.jpg " alt="快递员1号 " class="w30 h30 ">
+            </section>
+        </div>
+        <div id="confirm" class="w75 h12 bg-color3 mt5">
+            <p>人工送餐服务费 <span class="color8">2 </span>元</p>
+            <button id="submit" class="fr w20 h12 bg-color1 color8">确认提交</button>
+        </div>
+    </div>
+
+    <script>
+        $('#choose section').click(function() {
+            $(this).toggleClass('checkone');
+        })
+        $('#submit').click(function() {
+            window.location.href = "confirmOrder.html";
+        })
+    </script>
+</body>
+
+</html>

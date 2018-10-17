@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0,uc-fitscreen=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>我的FUN盘中心</title>
+    <meta name="keywords" content="miniMobile的demo">
+    <meta name="description" content="miniMobile是一个简单易用的移动框架！">
+    <!-- ui css、js -->
+    <link rel="stylesheet" type="text/css" href="css/miniMobile.css">
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/miniMobile.js"></script>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" type="text/css" href="plugins/fonticon/iconfont.css">
+    <!-- animate.css -->
+    <script type="text/javascript" src="plugins/layer_mobile/layer.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <!-- 引入公共js -->
+    <script type="text/javascript" src="js/common.js"></script>
+    <style>
+        body {
+            position: relative;
+        }
+        
+        #submit {
+            border: none;
+            outline: none;
+            font-size: 0.3rem;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        
+        #totalp {
+            position: absolute;
+            right: 3rem;
+            bottom: 0.4rem;
+        }
+        
+        #chooseWay {
+            position: absolute;
+            bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="ui-header clearfix w75 h15 f46">
+        <div class="ui-header-c fl f30 w75">
+            <a href="homePage.html">
+                <img src="images/logo.png" class="h12 w75">
+            </a>
+        </div>
+
+    </header>
+    <div id="main">
+        <h3 class="w35 h10 pl2" style="font-weight: normal">
+            <a href="#">我的FUN盘
+                <i class="icon iconfont icon-cartfill "></i>
+            </a>
+        </h3>
+        <div id="content">
+        </div>
+
+        <!-- 显示全选框 -->
+        <div class="t-c-v w75">
+            <p class="pl3 pr1" style="display: inline-block;margin-top: 1.85rem;">
+                <input type="checkbox" class="ui-checkbox" id="checkall">
+            </p>
+            <img src="images/diet7.png" alt="每日推荐1" class="w45 h30" style="opacity: 0;">
+            <figcaption style="display: inline-block;opacity: 0" class="t-c w25 pr5">
+                <p>
+                    <span class="sp1">10</span>
+                    <span class="sp2">.50元</span>
+                </p>
+                <p class="pt2 f28 pl2 mt2">
+                    购买数量</p>
+                <p class="t-c w20 mt3">
+                    <span class="fr w6 t-c jia">+</span>
+                    <span class="w8 shu">1</span>
+                    <span class="fl w6 t-c jian">-</span>
+                </p>
+            </figcaption>
+            <span id="totalp" class="close">总价：<span id="totalp2">00.00</span>元</span>
+            <button type="submit" class=" w20 h12 bg-color1 color8" id="submit">结算</button>
+
+            <p class="w75 t-c-v" id="chooseWay">
+                <label class="w30 t-c">
+                    <input type="radio" class="ui-radio" checked="checked" name="way" id="ren" value="0">人工送餐
+                </label>
+                <label>
+                    <input type="radio" class="ui-radio" name="way" id="fan" value="1">贩卖机自取
+                </label>
+            </p>
+        </div>
+    </div>
+    <script>
+        clickids = [];
+        showCartList();
+        $("#checkall").click(function() {
+            var inputs = $('#content input');
+            if (this.checked) {
+                for (let i = 0; i < inputs.length; i++) {
+                    const element = inputs[i];
+                    clickids.push(element.getAttribute('foodid'));
+                }
+                $("input[type='checkbox']").prop("checked", true);
+                $('#totalp2').text(getTotalMoney().toFixed(2));
+            } else {
+                clickids = [];
+                $("input[type='checkbox']").prop("checked", false);
+                $('#totalp2').text('00.00');
+            }
+            console.log(clickids);
+        });
+
+        //为每个单选框添加点击事件
+        $('#content input').click(function() {
+            var foodid = $(this).attr('foodid');
+            if ($(this).prop('checked') == true) {
+                clickids.push(foodid);
+            } else { //再次点击则删除
+                for (let i = 0; i < clickids.length; i++) {
+                    const element = clickids[i];
+                    if (element == foodid) {
+                        clickids.splice(i, 1);
+                        break;
+                    }
+                }
+            }
+            console.log(clickids);
+            $('#totalp2').text(getCheckMoney(clickids).toFixed(2));
+        });
+
+        //为每个商品的添加删除按钮绑定事件
+        $('.jia').click(function() {
+            var shu = $(this).siblings('.shu').text();
+            var foodid = $(this).parent().attr('foodid');
+            $(this).siblings('.shu').text(++shu);
+            updateFoodInCart(foodid, shu);
+            console.log(cartList);
+        })
+
+        $('.jian').click(function() {
+            var shu = $(this).siblings('.shu').text();
+            var foodid = $(this).parent().attr('foodid');
+            if (shu > 1) {
+                $(this).siblings('.shu').text(--shu);
+                updateFoodInCart(foodid, shu);
+            } else {
+                deleteInCart(foodid);
+                var index = clickids.indexOf(foodid);
+                if (index > -1) {
+                    clickids.splice(index, 1);
+                }
+                $(this).parents("figure").css('display', 'none');
+            }
+        })
+
+        $("#submit").click(function() {
+            //将点击的clickids一个个与购物车里面的比较  然后传给confirmList
+            for (let i = 0; i < clickids.length; i++) {
+                const clickid = clickids[i];
+                var confirmId = findFood(clickid, cartList).foodId;
+                addToConfirm(confirmId);
+                console.log(confirmList)
+            }
+            layer.open({
+                content: '尊敬的顾客：你好！本产品为半成品加工食材，如果你初次使用本平台，请确认是否持有焖烧锅。',
+                btn: ['已持有', '申请试用'],
+                yes: function() {
+                    var way = document.getElementsByName('way');
+                    layer.close();
+                    var flag = $('#ren').prop('checked');
+                    if (flag) {
+                        console.log('yes')
+                        window.location.href = 'express.html';
+                    } else {
+                        window.location.href = 'confirmO2.html';
+                    }
+                },
+                no: function() {
+                    window.location.href = 'scoreCenter.html';
+                }
+            });
+
+        })
+    </script>
+</body>
+
+</html>

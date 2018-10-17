@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0,uc-fitscreen=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>首页</title>
+    <!-- ui css、js -->
+    <link rel="stylesheet" type="text/css" href="css/miniMobile.css">
+    <link rel="stylesheet" type="text/css" href="css/comment.css">
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/miniMobile.js"></script>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" type="text/css" href="plugins/fonticon/iconfont.css">
+    <!-- swiper -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <!-- animate.css -->
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <!-- 引入公共js -->
+    <script type="text/javascript" src="js/common.js"></script>
+    <style>
+        #main figcaption .sp1,
+        #main2 figcaption .sp1 {
+            font-size: 0.8rem;
+        }
+        
+        #main figcaption .sp2,
+        #main2 figcaption .sp2 {
+            font-size: 0.35rem;
+            font-weight: bold;
+        }
+        
+        #bNav {
+            position: fixed;
+            bottom: 0;
+            vertical-align: middle
+        }
+        
+        #bNav div {
+            display: inline-block;
+            line-height: 1rem;
+        }
+        
+        #bNav a {
+            display: inline-block;
+            width: 100%;
+        }
+        
+        #bp {
+            border: 1px solid #666;
+            border-radius: 3px;
+        }
+        
+        #bp div {
+            display: inline-block;
+            line-height: 0.8rem;
+        }
+        
+        #addcart {
+            display: inline-block;
+            border: 1px solid #666;
+            line-height: 0.8rem;
+            border-radius: 3px;
+        }
+        
+        #tianjia1 {
+            border-radius: 10px;
+            display: inline-block;
+            line-height: 0.5rem;
+        }
+        
+        .ui-scrollTop {
+            bottom: 1rem;
+            background-color: #666;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <header class="ui-header clearfix w75 h15 f46">
+        <div class="ui-header-c fl f30 w75">
+            <a href="homePage.html"><img src="images/logo.png" class="h12 w75"></a>
+        </div>
+    </header>
+
+    <div id="main" class="w75" style="overflow: hidden">
+        <div class="ui-scrollTop radius-o bg-color-primary w10 h10 t-c pt1 f50 color8" onclick="goTop();">
+            <i class="icon iconfont icon-fanhuidingbu "> </i>
+        </div>
+    </div>
+
+    <div id="main2" style="display: none; ">
+        <figure class="t-c-v ">
+            <img src="images/diet7.png " alt="每日推荐1 " class="w55 h30 ">
+            <figcaption style="display: inline-block " class="t-c w25 pr5 ">
+                <p>
+                    <span class="sp1 ">11</span>
+                    <span class="sp2 ">.50元</span>
+                </p>
+                <p class="pt2 f28 ">月销量：
+                    <span class="f28 ">34</span>
+                </p>
+            </figcaption>
+        </figure>
+
+        <h3 class="w75 h8 pl2 mt2" id="back">返回菜单</h3>
+        <section class="w75">
+
+            <h3 class="pl2">
+                购买数量
+                <span class="bg-color-warning w30 t-c h5 fr f32" id="tianjia1"> + 加入购物车</span>
+                <p style="display: none;" id="tianjia2">
+                    <span id="jia" class="fr w10 t-c ">+</span>
+                    <span id="shu" class="fr ">1</span>
+                    <span id="jian" class="fr w10 t-c ">-</span>
+                </p>
+            </h3>
+            <article class="w75 mt8 mb5">
+                <h3 class="w75 t-c mt5 mb5">食谱</h3>
+                <ul class="w75 t-c  mt5 mb5">
+                    【主食】
+                    <li>大米 半杯 </li>
+                    <li>玉米 半根 </li>
+                </ul>
+                <ul class="w75 t-c mt5 mb5">
+                    【蒸菜】
+                    <li>干香菇 10-12个 </li>
+                    <li>腊肠 2根 </li>
+                    <li>菜花 1/3</li>
+                    <li>鸡蛋 2枚 </li>
+                    <li> 虾仁 10个</li>
+                </ul>
+            </article>
+
+        </section>
+    </div>
+
+    <div id="bNav" class="w75 h10 bg-color8 t-c ">
+        <div class="w35 h10 " style="border-right:1px solid #666; ">
+            <a href="liangshen.html ">筛选</a>
+        </div>
+        <div class="w35 h10 ">
+            <a href="shoppingcart.html" id="cart">我的FUN盘
+            <i class="icon iconfont icon-cartfill "></i>
+            <span id="cartshu"></span>
+        </a>
+        </div>
+    </div>
+
+    <script>
+        // 从common.js显示菜单 同时更新购物车数量
+        showOrderList();
+
+        var Flength = $('#main figure').length;
+        $('#main figure').eq(Flength - 1).css('margin-bottom', '1rem');
+
+
+        //点击之后动态展示刚刚选择的菜品
+        showFoodId = '';
+        $('#main figure').click(function() {
+            $('#main').css('display', 'none');
+            $('#main2').css('display', 'block');
+
+            //展示点击的食品
+            showFoodId = $(this).attr('foodid');
+            showClickFood(showFoodId);
+            //在购物车里面查找 看是否已经添加过
+            var food = findFood(showFoodId, cartList);
+
+
+            if (food != null) {
+                $('#shu').text(food.foodNum);
+                $('#tianjia1').css('display', 'none');
+                $('#tianjia2').css('display', 'inline');
+            } else {
+                $('#shu').text(0);
+            }
+            $('#cartshu').text(getTotalNum());
+        })
+
+        //确认窗口
+        // $('#conf').click(function() {
+        //     $('#main').css('display', 'block');
+        //     $('#main2').css('display', 'none');
+        // })
+
+
+        //添加操作
+        $('#jia').click(function() {
+            var shu = $('#shu').text();
+            $('#shu').text(++shu);
+            //若原本不存在于购物车中  则添加相应数据进去
+            if (findFood(showFoodId, cartList) == null) {
+                addToCart(showFoodId);
+            } else {
+                updateFoodInCart(showFoodId, shu);
+            }
+            $('#cartshu').text(getTotalNum());
+        })
+
+
+        //减少操作
+        $('#jian').click(function() {
+            var shu = $('#shu').text();
+            if (shu > 1) {
+                $('#shu').text(--shu);
+                updateFoodInCart(showFoodId, shu)
+                $('#cartshu').text(getTotalNum());
+            } else {
+                $('#tianjia1').css('display', 'inline');
+                $('#tianjia2').css('display', 'none');
+                deleteInCart(showFoodId);
+                $('#cartshu').text(getTotalNum());
+                return false;
+            }
+        })
+
+        //第一次添加时执行的操作
+        $('#tianjia1').click(function() {
+            $('#tianjia1').css('display', 'none');
+            $('#tianjia2').css('display', 'inline');
+            addToCart(showFoodId);
+            $('#shu').text(1);
+            $('#cartshu').text(getTotalNum());
+        })
+
+        //返回菜单
+        $('#back').click(function() {
+            $('#main').css('display', 'block');
+            $('#main2').css('display', 'none');
+            $('#tianjia1').css('display', 'inline');
+            $('#tianjia2').css('display', 'none');
+        })
+    </script>
+
+</body>
+
+</html>

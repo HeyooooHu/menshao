@@ -101,7 +101,13 @@
     </div>
     <script>
         clickids = [];
-        showCartList();
+
+        var testCartList = JSON.parse(cookie.get("cartList"));
+        console.log(testCartList);
+        cartList = testCartList;
+        showCartList(cartList);
+
+
         $("#checkall").click(function() {
             var inputs = $('#content input');
             if (this.checked) {
@@ -168,6 +174,8 @@
                 const clickid = clickids[i];
                 var confirmId = findFood(clickid, cartList).foodId;
                 addToConfirm(confirmId);
+                var testConfirmList = JSON.stringify(confirmList);
+                cookie.set("confirmList", testConfirmList, 1);
                 console.log(confirmList)
             }
             layer.open({

@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
-    <title>套餐列表</title>
+    <title>自定义食材列表</title>
     <!-- ui css、js -->
     <link rel="stylesheet" type="text/css" href="css/miniMobile.css">
     <link rel="stylesheet" type="text/css" href="css/comment.css">
@@ -96,7 +96,7 @@
         </div>
     </div>
 
-    <div id="main2" style="display: none; ">
+    <div id="main2" style="display: none">
         <figure class="t-c-v ">
             <img src="images/diet7.png " alt="每日推荐1 " class="w55 h30 ">
             <figcaption style="display: inline-block " class="t-c w25 pr5 ">
@@ -123,20 +123,10 @@
                 </p>
             </h3>
             <article class="w75 mt8 mb5">
-                <h3 class="w75 t-c mt5 mb5">食谱</h3>
-                <ul class="w75 t-c  mt5 mb5">
-                    【主食】
-                    <li>大米 半杯 </li>
-                    <li>玉米 半根 </li>
-                </ul>
-                <ul class="w75 t-c mt5 mb5">
-                    【蒸菜】
-                    <li>干香菇 10-12个 </li>
-                    <li>腊肠 2根 </li>
-                    <li>菜花 1/3</li>
-                    <li>鸡蛋 2枚 </li>
-                    <li> 虾仁 10个</li>
-                </ul>
+                <h3 class="w75 t-c mt5 mb5">食用益处</h3>
+                <p class="w75 t-c  mt5 mb5 pl2 pr2 pb3 h45">
+                    猪肉又名豚肉，是主要家畜之一、猪科动物家猪的肉。其性味甘咸平，含有丰富的蛋白质及脂肪、碳水化合物、钙、铁、磷等营养成分 [1] 。猪肉是日常生活的主要副食品，具有补虚强身，滋阴润燥、丰肌泽肤的作用。凡病后体弱、产后血虚、面黄赢瘦者，皆可用之作营养滋补之品。
+                </p>
             </article>
 
         </section>
@@ -156,7 +146,7 @@
 
     <script>
         // 从common.js显示菜单 同时更新购物车数量
-        showOrderList();
+        showOrderList2();
         var Flength = $('#main figure').length;
         $('#main figure').eq(Flength - 1).css('margin-bottom', '1rem');
 
@@ -168,7 +158,7 @@
 
             //展示点击的食品
             showFoodId = $(this).attr('foodid');
-            showClickFood(showFoodId);
+            showClickFood2(showFoodId);
             //在购物车里面查找 看是否已经添加过
             var food = findFood(showFoodId, cartList);
 
@@ -189,7 +179,7 @@
             $('#shu').text(++shu);
             //若原本不存在于购物车中  则添加相应数据进去
             if (findFood(showFoodId, cartList) == null) {
-                addToCart(showFoodId, orderList);
+                addToCart(showFoodId);
             } else {
                 updateFoodInCart(showFoodId, shu);
             }
@@ -217,7 +207,7 @@
         $('#tianjia1').click(function() {
             $('#tianjia1').css('display', 'none');
             $('#tianjia2').css('display', 'inline');
-            addToCart(showFoodId);
+            addToCart(showFoodId, orderList2);
             $('#shu').text(1);
             $('#cartshu').text(getTotalNum());
         })

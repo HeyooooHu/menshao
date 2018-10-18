@@ -76,7 +76,11 @@
             <button type="submit" class="fr w20 h12 bg-color1 color8" id="submit">提交订单</button>
         </div>
         <script>
-            showConfirmList();
+            var testConfirmList = JSON.parse(cookie.get("confirmList"));
+            console.log(testConfirmList);
+            confirmList = testConfirmList;
+
+            showConfirmList(confirmList);
             var allMoney = calculate() + parseInt(2);
             $('#all').text(allMoney.toFixed(2));
             $('#submit').click(function() {

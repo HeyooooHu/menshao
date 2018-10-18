@@ -143,7 +143,7 @@
     </div>
 
     <div id="bNav" class="w75 h10 bg-color8 t-c ">
-        <div class="w35 h10 " style="border-right:1px solid #666; ">
+        <div class="w35 h10 " style="border-right:1px solid #666; " id="shuaix">
             <a href="liangshen.html ">筛选</a>
         </div>
         <div class="w35 h10 ">
@@ -159,6 +159,14 @@
         showOrderList();
         var Flength = $('#main figure').length;
         $('#main figure').eq(Flength - 1).css('margin-bottom', '1rem');
+
+
+        if (cookie.get("cartList")) {
+            var testCartList = JSON.parse(cookie.get("cartList"));
+            cartList = testCartList;
+            console.log(cartList);
+            $('#cartshu').text(getTotalNum());
+        }
 
         //点击之后动态展示刚刚选择的菜品
         showFoodId = '';
@@ -217,7 +225,7 @@
         $('#tianjia1').click(function() {
             $('#tianjia1').css('display', 'none');
             $('#tianjia2').css('display', 'inline');
-            addToCart(showFoodId);
+            addToCart(showFoodId, orderList);
             $('#shu').text(1);
             $('#cartshu').text(getTotalNum());
         })
@@ -232,6 +240,12 @@
 
         //点击进入购物车
         $('#cart').click(function() {
+            // 将之前的数组对象先转为字符串（stringfy）存进cookie   之后再（parse）转为json数组
+            var testCartList = JSON.stringify(cartList);
+            cookie.set("cartList", testCartList, 1);
+            console.log(cookie.get("cartList"));
+        })
+        $('#shuaix').click(function() {
             // 将之前的数组对象先转为字符串（stringfy）存进cookie   之后再（parse）转为json数组
             var testCartList = JSON.stringify(cartList);
             cookie.set("cartList", testCartList, 1);

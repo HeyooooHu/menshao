@@ -180,34 +180,10 @@ orderList2 = [{
 
 
 //购物车列表  对象数组
-cartList = [{
-    foodId: '003',
-    foodImg: 'images/diet3.png',
-    foodSinglePrice: 10.50,
-    foodNum: 1,
-    foodTotal: 10.50
-}, {
-    foodId: '002',
-    foodImg: 'images/diet2.png',
-    foodSinglePrice: 11.50,
-    foodNum: 1,
-    foodTotal: 11.50
-}];
+cartList = [];
 
 //确认订单列表  对象数组
-confirmList = [{
-    foodId: '003',
-    foodImg: 'images/diet3.png',
-    foodSinglePrice: 10.50,
-    foodNum: 2,
-    foodTotal: 10.50
-}, {
-    foodId: '002',
-    foodImg: 'images/diet2.png',
-    foodSinglePrice: 11.50,
-    foodNum: 1,
-    foodTotal: 11.50
-}];
+confirmList = [];
 
 //展示菜单列表
 function showOrderList() {
@@ -268,7 +244,7 @@ function showClickFood(id) {
 
     $('#main2 figure').replaceWith($figure);
 
-    var recipe = showFood.foodRecipe;
+    // var recipe = showFood.foodRecipe;
     // recipe = escape2Html(recipe);
     // $('#main2 article').html(recipe);
 }
@@ -518,9 +494,4 @@ function calculate() {
         totalMoney += element.foodTotal;
     }
     return totalMoney;
-}
-
-function escape2Html(str) {
-    var arrEntities = { 'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"' };
-    return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function(all, t) { return arrEntities[t]; });
 }

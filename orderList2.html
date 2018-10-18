@@ -150,6 +150,15 @@
         var Flength = $('#main figure').length;
         $('#main figure').eq(Flength - 1).css('margin-bottom', '1rem');
 
+
+        if (cookie.get("cartList")) {
+            var testCartList = JSON.parse(cookie.get("cartList"));
+            cartList = testCartList;
+            console.log(cartList);
+            $('#cartshu').text(getTotalNum());
+        }
+
+
         //点击之后动态展示刚刚选择的菜品
         showFoodId = '';
         $('#main figure').click(function() {
@@ -179,7 +188,7 @@
             $('#shu').text(++shu);
             //若原本不存在于购物车中  则添加相应数据进去
             if (findFood(showFoodId, cartList) == null) {
-                addToCart(showFoodId);
+                addToCart(showFoodId, orderList2);
             } else {
                 updateFoodInCart(showFoodId, shu);
             }

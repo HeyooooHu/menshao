@@ -8,21 +8,18 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
-    <title>套餐列表</title>
+    <title>点餐</title>
+    <meta name="keywords" content="miniMobile的demo">
+    <meta name="description" content="miniMobile是一个简单易用的移动框架！">
     <!-- ui css、js -->
     <link rel="stylesheet" type="text/css" href="css/miniMobile.css">
-    <link rel="stylesheet" type="text/css" href="css/comment.css">
     <script type="text/javascript" src="js/zepto.min.js"></script>
     <script type="text/javascript" src="js/miniMobile.js"></script>
     <!-- 字体图标 -->
     <link rel="stylesheet" type="text/css" href="plugins/fonticon/iconfont.css">
-    <!-- swiper -->
-    <link rel="stylesheet" href="css/swiper.min.css">
-    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/comment.css">
     <!-- animate.css -->
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <!-- 引入公共js -->
-    <script type="text/javascript" src="js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
     <style>
         #main figcaption .sp1,
         #main2 figcaption .sp1 {
@@ -88,9 +85,141 @@
         <div class="ui-header-c fl f30 w75">
             <a href="homePage.html"><img src="images/logo.png" class="h12 w75"></a>
         </div>
-    </header>
 
+    </header>
     <div id="main" class="w75" style="overflow: hidden">
+        <figure class="t-c-v ">
+            <img src="images/Tuesday.png " alt="每日推荐1 " class="w55 h30 ">
+            <figcaption style="display: inline-block " class="t-c w25 pr5 ">
+                <p>
+                    <span class="sp1 ">12</span>
+                    <span class="sp2 ">.50元</span>
+                </p>
+                <p class="pt2 f28 " style="font-family: jianti ">月销量：
+                    <span class="f28 " style="font-family: jianti ">30</span>
+                </p>
+            </figcaption>
+        </figure>
+        <figure class="t-c-v ">
+            <img src="images/Thursday.png " alt="每日推荐1 " class="w55 h30 ">
+            <figcaption style="display: inline-block " class="t-c w25 pr5 ">
+                <p>
+                    <span class="sp1 ">11</span>
+                    <span class="sp2 ">.50元</span>
+                </p>
+                <p class="pt2 f28 " style="font-family: jianti ">月销量：
+                    <span class="f28 " style="font-family: jianti ">20</span>
+                </p>
+            </figcaption>
+        </figure>
+        <figure class="t-c-v ">
+            <img src="images/Wednesday.png " alt="每日推荐1 " class="w55 h30 ">
+            <figcaption style="display: inline-block " class="t-c w25 pr5 ">
+                <p>
+                    <span class="sp1 ">12</span>
+                    <span class="sp2 ">.50元</span>
+                </p>
+                <p class="pt2 f28 " style="font-family: jianti ">月销量：
+                    <span class="f28 " style="font-family: jianti ">12</span>
+                </p>
+            </figcaption>
+        </figure>
+        <figure class="t-c-v ">
+            <img src="images/set3.png " alt="每日推荐1 " class="w55 h30 ">
+            <figcaption style="display: inline-block " class="t-c w25 pr5 ">
+                <p>
+                    <span class="sp1 ">10</span>
+                    <span class="sp2 ">.50元</span>
+                </p>
+                <p class="pt2 f28 " style="font-family: jianti ">月销量：
+                    <span class="f28 " style="font-family: jianti ">24</span>
+                </p>
+            </figcaption>
+        </figure>
+        <figure class="t-c-v ">
+            <img src="images/Friday.png " alt="每日推荐1 " class="w55 h30 ">
+            <figcaption style="display: inline-block " class="t-c w25 pr5 ">
+                <p>
+                    <span class="sp1 ">11</span>
+                    <span class="sp2 ">.50元</span>
+                </p>
+                <p class="pt2 f28 " style="font-family: jianti ">月销量：
+                    <span class="f28 " style="font-family: jianti ">34</span>
+                </p>
+            </figcaption>
+        </figure>
+        <figure class="t-c-v" id="test">
+            <img src="images/diet1.png" alt="每日推荐1" class="w55 h30">
+            <figcaption style="display: inline-block" class="t-c w25 pr5">
+                <p>
+                    <span class="sp1">12</span>
+                    <span class="sp2">.50元</span>
+                </p>
+                <p class="pt2 f28" style="font-family: jianti">月销量：<span class="f28" style="font-family: jianti">12</span></p>
+            </figcaption>
+        </figure>
+
+        <figure class="t-c-v">
+            <img src="images/diet2.png" alt="每日推荐1" class="w55 h30">
+            <figcaption style="display: inline-block" class="t-c w25 pr5">
+                <p>
+                    <span class="sp1">10</span>
+                    <span class="sp2">.50元</span>
+                </p>
+                <p class="pt2 f28" style="font-family: jianti">月销量：
+                    <span class="f28" style="font-family: jianti">68</span>
+                </p>
+            </figcaption>
+        </figure>
+        <figure class="t-c-v">
+            <img src="images/diet3.png" alt=" 每日推荐1 " class="w55 h30 ">
+            <figcaption style="display: inline-block " class="t-c w25 pr5 ">
+                <p>
+                    <span class="sp1 ">10</span>
+                    <span class="sp2 ">.50元</span>
+                </p>
+                <p class="pt2 f28 " style="font-family: jianti ">月销量：
+                    <span class="f28 " style="font-family: jianti ">68</span>
+                </p>
+            </figcaption>
+        </figure>
+
+        <figure class="t-c-v ">
+            <img src="images/diet4.png " alt="每日推荐1 " class="w55 h30 ">
+            <figcaption style="display: inline-block " class="t-c w25 pr5 ">
+                <p>
+                    <span class="sp1 ">12</span>
+                    <span class="sp2 ">.50元</span>
+                </p>
+                <p class="pt2 f28 " style="font-family: jianti ">月销量：
+                    <span class="f28 " style="font-family: jianti ">34</span>
+                </p>
+            </figcaption>
+        </figure>
+        <figure class="t-c-v ">
+            <img src="images/diet5.png " alt="每日推荐1 " class="w55 h30 ">
+            <figcaption style="display: inline-block " class="t-c w25 pr5 ">
+                <p>
+                    <span class="sp1 ">8</span>
+                    <span class="sp2 ">.50元</span>
+                </p>
+                <p class="pt2 f28 " style="font-family: jianti ">月销量：
+                    <span class="f28 " style="font-family: jianti ">22</span>
+                </p>
+            </figcaption>
+        </figure>
+        <figure class="t-c-v ">
+            <img src="images/diet6.png " alt="每日推荐1 " class="w55 h30 ">
+            <figcaption style="display: inline-block " class="t-c w25 pr5 ">
+                <p>
+                    <span class="sp1 ">11</span>
+                    <span class="sp2 ">.50元</span>
+                </p>
+                <p class="pt2 f28 " style="font-family: jianti ">月销量：
+                    <span class="f28 " style="font-family: jianti ">34</span>
+                </p>
+            </figcaption>
+        </figure>
         <div class="ui-scrollTop radius-o bg-color-primary w10 h10 t-c pt1 f50 color8" onclick="goTop();">
             <i class="icon iconfont icon-fanhuidingbu "> </i>
         </div>
@@ -110,8 +239,7 @@
             </figcaption>
         </figure>
 
-        <h3 class="w75 h8 pl2 mt2" id="back">返回菜单</h3>
-        <section class="w75">
+        <section class="w75 mt8 ">
 
             <h3 class="pl2">
                 购买数量
@@ -143,116 +271,54 @@
     </div>
 
     <div id="bNav" class="w75 h10 bg-color8 t-c ">
-        <div class="w35 h10 " style="border-right:1px solid #666; " id="shuaix">
+        <div class="w35 h10 " style="border-right:1px solid #666; ">
             <a href="liangshen.html ">筛选</a>
         </div>
         <div class="w35 h10 ">
             <a href="shoppingcart.html" id="cart">我的FUN盘
-                <i class="icon iconfont icon-cartfill "></i>
-                <span id="cartshu"></span>
-            </a>
+            <i class="icon iconfont icon-cartfill "></i>
+            <span id="cartshu"></span>
+        </a>
         </div>
     </div>
 
     <script>
-        // 从common.js显示菜单 同时更新购物车数量
-        showOrderList();
         var Flength = $('#main figure').length;
         $('#main figure').eq(Flength - 1).css('margin-bottom', '1rem');
 
-
-        if (cookie.get("cartList")) {
-            var testCartList = JSON.parse(cookie.get("cartList"));
-            cartList = testCartList;
-            console.log(cartList);
-            $('#cartshu').text(getTotalNum());
-        }
-
-        //点击之后动态展示刚刚选择的菜品
-        showFoodId = '';
         $('#main figure').click(function() {
+            console.log(this);
             $('#main').css('display', 'none');
             $('#main2').css('display', 'block');
-
-            //展示点击的食品
-            showFoodId = $(this).attr('foodid');
-            showClickFood(showFoodId);
-            //在购物车里面查找 看是否已经添加过
-            var food = findFood(showFoodId, cartList);
-
-
-            if (food != null) {
-                $('#shu').text(food.foodNum);
-                $('#tianjia1').css('display', 'none');
-                $('#tianjia2').css('display', 'inline');
-            } else {
-                $('#shu').text(0);
-            }
-            $('#cartshu').text(getTotalNum());
+            $('#main2 figure').replaceWith(this);
         })
-
-        //添加操作
+        $('#conf').click(function() {
+            $('#main').css('display', 'block');
+            $('#main2').css('display', 'none');
+        })
         $('#jia').click(function() {
             var shu = $('#shu').text();
             $('#shu').text(++shu);
-            //若原本不存在于购物车中  则添加相应数据进去
-            if (findFood(showFoodId, cartList) == null) {
-                addToCart(showFoodId, orderList);
-            } else {
-                updateFoodInCart(showFoodId, shu);
-            }
-            $('#cartshu').text(getTotalNum());
+            $('#cartshu').text(shu);
         })
-
-
-        //减少操作
         $('#jian').click(function() {
             var shu = $('#shu').text();
             if (shu > 1) {
                 $('#shu').text(--shu);
-                updateFoodInCart(showFoodId, shu)
-                $('#cartshu').text(getTotalNum());
+                $('#cartshu').text(shu);
             } else {
                 $('#tianjia1').css('display', 'inline');
                 $('#tianjia2').css('display', 'none');
-                deleteInCart(showFoodId);
-                $('#cartshu').text(getTotalNum());
+                $('#cartshu').text('');
                 return false;
             }
         })
-
-        //第一次添加时执行的操作
         $('#tianjia1').click(function() {
             $('#tianjia1').css('display', 'none');
             $('#tianjia2').css('display', 'inline');
-            addToCart(showFoodId, orderList);
-            $('#shu').text(1);
-            $('#cartshu').text(getTotalNum());
-        })
-
-        //返回菜单
-        $('#back').click(function() {
-            $('#main').css('display', 'block');
-            $('#main2').css('display', 'none');
-            $('#tianjia1').css('display', 'inline');
-            $('#tianjia2').css('display', 'none');
-        })
-
-        //点击进入购物车
-        $('#cart').click(function() {
-            // 将之前的数组对象先转为字符串（stringfy）存进cookie   之后再（parse）转为json数组
-            var testCartList = JSON.stringify(cartList);
-            cookie.set("cartList", testCartList, 1);
-            console.log(cookie.get("cartList"));
-        })
-        $('#shuaix').click(function() {
-            // 将之前的数组对象先转为字符串（stringfy）存进cookie   之后再（parse）转为json数组
-            var testCartList = JSON.stringify(cartList);
-            cookie.set("cartList", testCartList, 1);
-            console.log(cookie.get("cartList"));
+            $('#cartshu').text(1);
         })
     </script>
-
 </body>
 
 </html>

@@ -18,9 +18,7 @@
     <!-- 字体图标 -->
     <link rel="stylesheet" type="text/css" href="plugins/fonticon/iconfont.css">
     <!-- animate.css -->
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <!-- 引入公共js -->
-    <script type="text/javascript" src="js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
     <style>
         #main>p {
             border-bottom: 0.2rem solid #eee;
@@ -59,14 +57,28 @@
 
     </header>
     <div id="main" class="w75 pr3" style="overflow: hidden">
-        <div id="content">
-        </div>
-        <p class="pl2 f30 mt3 w75 pb3 "></p>
+        <figure class="t-c-v">
+            <img src="images/diet4.png" alt="每日推荐1" class="w55 h30">
+            <figcaption style="display: inline-block" class="t-c w25 pr5">
+                <p>
+                    <span class="sp" id="single">12.50</span>元
+                </p>
+                <p class="pt2 f28" style="font-family: jianti">月销量：
+                    <span class="f28" style="font-family: jianti">22</span>
+                </p>
+            </figcaption>
+        </figure>
+        <p class="pl2 f30 mt3 w75 pb3 pt3">
+            购买数量
+            <span id="jia" class="fr w10 t-c ">+</span>
+            <span id="shu" class="fr">2</span>
+            <span id="jian" class="fr w10 t-c ">-</span>
+        </p>
         <div class="pl2 mb3 w75 pb3 pt3 h15" style="border-bottom: 0.2rem solid #eee;">
             <p style="display: inline-block" class="w35">
                 餐具押金 10元/个<br> （归还自动退回）
             </p>
-            <span class="fr w15 h12" style="line-height: 0.8rem;" id="yajinliang">*2</span>
+            <span class="fr w15 h12" style="line-height: 0.8rem;">*2</span>
 
         </div>
         <p class="pl2 mb3 w75 pb3 pt3">
@@ -75,20 +87,34 @@
         </p>
         <div id="confirm" class="w75 h25 bg-color3 ">
             <p>共1份，总金额
-                <span class="color8" id="all">45.00</span>元 <br> （其中餐具押金：<span id="yajin">20</span>元）
+                <span class="color8" id="all">45.00</span>元 <br> （其中餐具押金：20元）
             </p>
             <button type="submit" class="fr w20 h25 bg-color1 color8" id="submit">提交订单</button>
         </div>
         <script>
-            var testConfirmList = JSON.parse(cookie.get("confirmList"));
-            console.log(testConfirmList);
-            confirmList = testConfirmList;
+            $('#jia').click(function() {
+                var shu = $('#shu').text();
+                $('#shu').text(++shu);
+                $('#cartshu').text(shu);
+                caculate();
+            })
+            $('#jian').click(function() {
+                var shu = $('#shu').text();
+                if (shu != 1) {
+                    $('#shu').text(--shu);
+                } else
+                    return false;
+                caculate();
+            })
 
-
-            showConfirmList(confirmList);
-            var allMoney = calculate() + parseInt($('#yajin').text());
-            $('#all').text(allMoney.toFixed(2));
-
+            function caculate() {
+                var number = $('#shu').text();
+                var single = $('#single').text();
+                var all = number * single + 20;
+                all = all.toFixed(2);
+                $('#all').text(all);
+                console.log(all);
+            }
             $('#submit').click(function() {
                 window.location.href = "final.html";
             })

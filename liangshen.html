@@ -18,10 +18,10 @@
     <!-- 字体图标 -->
     <link rel="stylesheet" type="text/css" href="plugins/fonticon/iconfont.css">
     <!-- swiper -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.5/css/swiper.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.5/js/swiper.min.js"></script>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/swiper.min.js"></script>
     <!-- animate.css -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
     <style>
         #main section p button {
             background-color: transparent;
@@ -61,7 +61,7 @@
         </div>
         <div id="choose" class="w60" style="margin: auto;">
             <h2 class="t-c color2 mt4 f46" style="font-family: jianti">筛选</h2>
-            <section>
+            <section id="order1">
                 <h3>套餐</h3>
                 <p class="mt2 mb2">
                     <button><a href="#">瘦身</a></button>
@@ -72,7 +72,7 @@
                     <button class="fr"><a href="#">能量</a></button>
                 </p>
             </section>
-            <section>
+            <section id="order2">
                 <h3>私人定制</h3>
                 <p class="mt2 mb2">
                     <button><a href="#">谷物</a></button>
@@ -89,7 +89,8 @@
         </div>
     </div>
     <script>
-        $('#choose a').attr("href", "orderList.html");
+        $('#order1 a').attr("href", "orderList.html");
+        $('#order2 a').attr("href", "orderList2.html");
     </script>
 </body>
 

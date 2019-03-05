@@ -19,7 +19,9 @@
     <link rel="stylesheet" type="text/css" href="plugins/fonticon/iconfont.css">
     <!-- animate.css -->
     <script type="text/javascript" src="plugins/layer_mobile/layer.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <!-- 引入公共js -->
+    <script type="text/javascript" src="js/common.js"></script>
     <style>
         #main>p {
             border-bottom: 0.2rem solid #eee;
@@ -58,23 +60,9 @@
 
     </header>
     <div id="main" class="w75 pr3" style="overflow: hidden">
-        <figure class="t-c-v">
-            <img src="images/diet4.png" alt="每日推荐1" class="w55 h30">
-            <figcaption style="display: inline-block" class="t-c w25 pr5">
-                <p>
-                    <span class="sp" id="single">12.50</span>元
-                </p>
-                <p class="pt2 f28" style="font-family: jianti">月销量：
-                    <span class="f28" style="font-family: jianti">22</span>
-                </p>
-            </figcaption>
-        </figure>
-        <p class="pl2 f30 mt3 w75 pb3 pt3">
-            购买数量
-            <span id="jia" class="fr w10 t-c ">+</span>
-            <span id="shu" class="fr">2</span>
-            <span id="jian" class="fr w10 t-c ">-</span>
-        </p>
+        <div id="content">
+        </div>
+        <p class="pl2 f30 mt3 w75 pb3"></p>
         <p class="pl2 mb3 w75 pb3 pt3">
             配送至： <span class="color3">河北省保定市莲池区华北电力大学二校区</span>
         </p>
@@ -82,35 +70,19 @@
             <p>收货人：Peter Qiao</p>
             <p>电话：15033585107</p>
         </div>
-        <div id="confirm" class="w75 h12 bg-color3 ">
+        <div id="confirm" class="w75 h12 bg-color3 f28">
             <p>共2份，总金额
-                <span class="color8" id="all">25.00</span>元</p>
+                <span class="color8" id="all">25.00</span>元 (运费两元)</p>
             <button type="submit" class="fr w20 h12 bg-color1 color8" id="submit">提交订单</button>
         </div>
         <script>
-            $('#jia').click(function() {
-                var shu = $('#shu').text();
-                $('#shu').text(++shu);
-                $('#cartshu').text(shu);
-                caculate();
-            })
-            $('#jian').click(function() {
-                var shu = $('#shu').text();
-                if (shu != 1) {
-                    $('#shu').text(--shu);
-                } else
-                    return false;
-                caculate();
-            })
+            var testConfirmList = JSON.parse(cookie.get("confirmList"));
+            console.log(testConfirmList);
+            confirmList = testConfirmList;
 
-            function caculate() {
-                var number = $('#shu').text();
-                var single = $('#single').text();
-                var all = number * single;
-                all = all.toFixed(2);
-                $('#all').text(all);
-                console.log(all);
-            }
+            showConfirmList(confirmList);
+            var allMoney = calculate() + parseInt(2);
+            $('#all').text(allMoney.toFixed(2));
             $('#submit').click(function() {
                 window.location.href = "final.html";
             })

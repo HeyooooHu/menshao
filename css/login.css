@@ -32,7 +32,7 @@ figure {
 
 body {
     color: #333;
-    font: 0.6rem/1 tahoma, arial, 'Microsoft YaHei', simsun;
+    font: 1rem tahoma, arial, 'Microsoft YaHei', simsun;
 }
 
 input,
@@ -40,7 +40,7 @@ select,
 option,
 textarea,
 button {
-    font: 0.6rem/1 tahoma, arial, 'Microsoft YaHei', simsun;
+    font: 1rem tahoma, arial, 'Microsoft YaHei', simsun;
 }
 
 * {

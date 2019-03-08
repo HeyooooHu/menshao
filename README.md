@@ -1,8 +1,3 @@
----
-title: menshaofun
-date: 2019-03-08 11:58:48
-tags: [技术，前端]
----
 ## 焖烧饭项目
 
 > 本项目基本功能为线上选择食谱菜单，线下取餐，利用焖烧锅自制菜品。
@@ -31,27 +26,27 @@ tags: [技术，前端]
 ### **3.项目截图流程**
 
 #### 3.1 登录：（用户名：焖烧饭，密码：menshaofan）
-![登录](/assets/blogImg/menshaofun/login.png)
+![登录](showImg/login.png)
 #### 3.2 首页
-![首页](/assets/blogImg/menshaofun/home.png)
+![首页](showImg/home.png)
 #### 3.3 筛选列表
 选择种类样式
-![筛选](/assets/blogImg/menshaofun/order.png)
+![筛选](showImg/order.png)
 #### 3.4 菜单（套餐和菜品）
-![菜单1](/assets/blogImg/menshaofun/menu.png)
-![菜单2](/assets/blogImg/menshaofun/other.png)
+![菜单1](showImg/menu.png)
+![菜单2](showImg/other.png)
 #### 3.5 购物车
-![购物车](/assets/blogImg/menshaofun/cart.png)
+![购物车](showImg/cart.png)
 #### 3.6 下单提示
-![下单提示](/assets/blogImg/menshaofun/tips.png)
+![下单提示](showImg/tips.png)
 #### 3.7 人工送餐
-![确认](/assets/blogImg/menshaofun/confirm.png)
-![快递选择](/assets/blogImg/menshaofun/express.png)
+![确认](showImg/confirm.png)
+![快递选择](showImg/express.png)
 #### 3.8 自助取餐
-![自助机](/assets/blogImg/menshaofun/zizhu.png)
-![确认2](/assets/blogImg/menshaofun/confirm2.png)
+![自助机](showImg/zizhu.png)
+![确认2](showImg/confirm2.png)
 #### 3.9 结束
-![结束](/assets/blogImg/menshaofun/final.png)
+![结束](showImg/final.png)
 
 以上为大致的基本流程
 
